@@ -42,16 +42,16 @@
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">                            
                             <thead>
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="3">
                                         <a href="tambah_kuliner" class="btn btn-primary waves-effect">Tambah Data</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Alamat</th>
+                                    <!-- <th>Alamat</th>
                                     <th>Longitude</th>
-                                    <th>Latitude</th>
+                                    <th>Latitude</th> -->
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -59,9 +59,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Alamat</th>
+                                    <!-- <th>Alamat</th>
                                     <th>Longitude</th>
-                                    <th>Latitude</th>
+                                    <th>Latitude</th> -->
                                     <th>Actions</th>
                                 </tr>
                             </tfoot>
@@ -72,9 +72,9 @@
                                     <tr>
                                         <td><?=$no?></td>
                                         <td><?=$k['nama_kuliner']?></td>
-                                        <td><?=$k['alamat_kuliner']?></td>
+                                        <!-- <td><?=$k['alamat_kuliner']?></td>
                                         <td><?=$k['long_kuliner']?></td>
-                                        <td><?=$k['lat_kuliner']?></td>
+                                        <td><?=$k['lat_kuliner']?></td> -->
                                         <td>
                                             <a href="<?=base_url()?>administrator/edit_kuliner/<?=$k['id_kuliner']?>" class="btn btn-primary waves-effect">Edit</a>
 

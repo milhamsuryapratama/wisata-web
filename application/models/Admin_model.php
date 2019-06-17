@@ -40,5 +40,14 @@ class Admin_model extends CI_Model
     {
         return $this->db->order_by($field, 'DESC')->join($table2,$params1)->get($table1)->result_array();
     }
+
+    public function ambil_data_by_id_with_pagination($perpage,$offset)
+    {
+        $query = $this->db->select('*')
+                          ->from('tb_blog')
+                          ->order_by('id_blog', 'DESC')
+                          ->get('',$perpage,$offset)->result_array();
+        return $query;
+    }
 }
 ?>

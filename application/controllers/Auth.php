@@ -7,15 +7,16 @@ class Auth extends CI_Controller
 	
 	// function __construct()
 	// {
-	// 	parent::__construct();
-	// 	if ($this->session->userdata('status') == 'logged') {
-	// 		redirect(base_url().'administrator/dashboard');
-	// 	}
+	// 	parent::__construct();		
 	// }
-	
+
 	public function index()
 	{
-		$this->load->view('administrator/Login');
+		if ($this->session->userdata('status') == 'logged') {
+			redirect(base_url().'administrator/dashboard');
+		} else {
+			$this->load->view('administrator/Login');
+		}		
 	}
 
 	public function login()

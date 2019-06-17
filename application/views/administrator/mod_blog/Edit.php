@@ -68,7 +68,7 @@
 <script>
     $(function() {
         CKEDITOR.replace('isi', {
-            height: '300px'
+            height: '500px'
         });
     })
 </script>

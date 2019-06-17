@@ -57,15 +57,21 @@
                                         <td><?=$no?></td>
                                         <td><?=$k['username']?></td>
                                         <td><?=$k['role']?></td>
-                                        <td>
-                                            <a href="<?=base_url()?>administrator/edit_users/<?=$k['id']?>" class="btn btn-primary waves-effect">Edit</a>
+                                        <?php if ($k['id'] == $this->session->userdata('id') AND $this->session->userdata('role') == 'admin') { ?>
+                                            <td>
+                                                <a href="<?=base_url()?>administrator/admin_area/<?=$k['id']?>" class="btn btn-primary waves-effect">Go To User Area</a>
+                                            </td>
+                                        <?php } else { ?>
+                                            <td>
+                                                <a href="<?=base_url()?>administrator/edit_users/<?=$k['id']?>" class="btn btn-primary waves-effect">Edit</a>
 
-                                            <a href="<?=base_url()?>administrator/hapus_users/<?=$k['id']?>" class="btn btn-danger waves-effect" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini ?')">Hapus</a>
+                                                <a href="<?=base_url()?>administrator/hapus_users/<?=$k['id']?>" class="btn btn-danger waves-effect" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini ?')">Hapus</a>
 
-                                            <!-- <a href="<?=base_url()?>administrator/reset_users/<?=$k['id']?>" class="btn btn-primary waves-effect">Reset Password</a> -->
+                                                <!-- <a href="<?=base_url()?>administrator/reset_users/<?=$k['id']?>" class="btn btn-primary waves-effect">Reset Password</a> -->
 
-                                            <!-- <button type="button" class="btn bg-light-blue waves-effect" data-toggle="modal" data-target="#defaultModal">Reset Password</button> -->
-                                        </td>
+                                                <!-- <button type="button" class="btn bg-light-blue waves-effect" data-toggle="modal" data-target="#defaultModal">Reset Password</button> -->
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php $no++; } ?>
                             </tbody>

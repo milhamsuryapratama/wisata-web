@@ -63,8 +63,9 @@ class Administrator extends CI_Controller
 					'alamat_wisata' => $this->input->post('alamat_wisata'),
 					'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
 					'deskripsi' => $this->input->post('deskripsi'),
-					'lang_wisata' => $this->input->post('long'),
-					'lat_wisata' => $this->input->post('lat'),
+					'peta_wisata' => $this->input->post('iframe'),
+					// 'lang_wisata' => $this->input->post('long'),
+					// 'lat_wisata' => $this->input->post('lat'),
 					'foto_wisata' => $foto['file_name']
 
 				);
@@ -102,15 +103,29 @@ class Administrator extends CI_Controller
 	        $this->upload->do_upload('thumbnail');
 	        $foto = $this->upload->data();
 
+	        $iframe = $this->input->post('iframe');
+
 	        if (empty($foto['file_name'])) {
-	        	$data_wisata = array(
-					'nama_wisata' => $this->input->post('nama_wisata'),
-					'alamat_wisata' => $this->input->post('alamat_wisata'),
-					'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
-					'deskripsi' => $this->input->post('deskripsi'),
-					'lang_wisata' => $this->input->post('long'),
-					'lat_wisata' => $this->input->post('lat')
-				);
+	        	if ($iframe == '') {
+	        		$data_wisata = array(
+	        			'nama_wisata' => $this->input->post('nama_wisata'),
+	        			'alamat_wisata' => $this->input->post('alamat_wisata'),
+	        			'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
+	        			'deskripsi' => $this->input->post('deskripsi')
+					// 'lang_wisata' => $this->input->post('long'),
+					// 'lat_wisata' => $this->input->post('lat')
+	        		);
+	        	} else {
+	        		$data_wisata = array(
+	        			'nama_wisata' => $this->input->post('nama_wisata'),
+	        			'alamat_wisata' => $this->input->post('alamat_wisata'),
+	        			'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
+	        			'deskripsi' => $this->input->post('deskripsi'),
+	        			'peta_wisata' => $iframe
+					// 'lang_wisata' => $this->input->post('long'),
+					// 'lat_wisata' => $this->input->post('lat')
+	        		);
+	        	}        	
 	        } else {
 	        	//compress images
 	        	$config['image_library'] = 'gd2';
@@ -124,16 +139,29 @@ class Administrator extends CI_Controller
 	        	$this->load->library('image_lib', $config);
 	        	$this->image_lib->resize();
 
-	        	$data_wisata = array(
-					'nama_wisata' => $this->input->post('nama_wisata'),
-					'alamat_wisata' => $this->input->post('alamat_wisata'),
-					'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
-					'deskripsi' => $this->input->post('deskripsi'),
-					'lang_wisata' => $this->input->post('long'),
-					'lat_wisata' => $this->input->post('lat'),
-					'foto_wisata' => $foto['file_name']
+	        	if ($iframe == '') {
+	        		$data_wisata = array(
+	        			'nama_wisata' => $this->input->post('nama_wisata'),
+	        			'alamat_wisata' => $this->input->post('alamat_wisata'),
+	        			'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
+	        			'deskripsi' => $this->input->post('deskripsi'),					// 'lang_wisata' => $this->input->post('long'),
+					// 'lat_wisata' => $this->input->post('lat'),
+	        			'foto_wisata' => $foto['file_name']
 
-				);
+	        		);
+	        	} else {
+	        		$data_wisata = array(
+	        			'nama_wisata' => $this->input->post('nama_wisata'),
+	        			'alamat_wisata' => $this->input->post('alamat_wisata'),
+	        			'slug_wisata' => url_title($this->input->post('nama_wisata'), 'dash', TRUE),
+	        			'deskripsi' => $this->input->post('deskripsi'),
+	        			'peta_wisata' => $iframe,
+					// 'lang_wisata' => $this->input->post('long'),
+					// 'lat_wisata' => $this->input->post('lat'),
+	        			'foto_wisata' => $foto['file_name']
+
+	        		);
+	        	}        	
 
 				$unlink = $this->Admin_model->ambil_data_by_id('tb_wisata','id_wisata',$id);
 	        	$path = 'assets/foto/wisata/';
@@ -252,8 +280,10 @@ class Administrator extends CI_Controller
 					'alamat_hotel' => $this->input->post('alamat_hotel'),
 					'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
 					'deskripsi_hotel' => $this->input->post('deskripsi'),
-					'long_hotel' => $this->input->post('long'),
-					'lat_hotel' => $this->input->post('lat'),
+					'peta_hotel' => $this->input->post('iframe'),
+					'harga' => str_replace('.', '', $this->input->post('harga')),
+					// 'long_hotel' => $this->input->post('long'),
+					// 'lat_hotel' => $this->input->post('lat'),
 					'foto_hotel' => $foto['file_name']
 
 				);
@@ -291,16 +321,33 @@ class Administrator extends CI_Controller
 	        $this->upload->do_upload('thumbnail');
 	        $foto = $this->upload->data();
 
-	        if (empty($foto['file_name'])) {
-	        	$data_hotel = array(
-					'nama_hotel' => $this->input->post('nama_hotel'),
-					'alamat_hotel' => $this->input->post('alamat_hotel'),
-					'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
-					'deskripsi_hotel' => $this->input->post('deskripsi'),
-					'long_hotel' => $this->input->post('long'),
-					'lat_hotel' => $this->input->post('lat')
+	        $iframe = $this->input->post('iframe');
 
-				);
+	        if (empty($foto['file_name'])) {
+	        	if ($iframe == '') {
+	        		$data_hotel = array(
+	        			'nama_hotel' => $this->input->post('nama_hotel'),
+	        			'alamat_hotel' => $this->input->post('alamat_hotel'),
+	        			'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
+	        			'harga' => str_replace('.', '', $this->input->post('harga')),
+	        			'deskripsi_hotel' => $this->input->post('deskripsi')
+					// 'long_hotel' => $this->input->post('long'),
+					// 'lat_hotel' => $this->input->post('lat')
+
+	        		);
+	        	} else {
+	        		$data_hotel = array(
+	        			'nama_hotel' => $this->input->post('nama_hotel'),
+	        			'alamat_hotel' => $this->input->post('alamat_hotel'),
+	        			'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
+	        			'deskripsi_hotel' => $this->input->post('deskripsi'),
+	        			'harga' => str_replace('.', '', $this->input->post('harga')),
+	        			'peta_hotel' => $this->input->post('iframe')
+					// 'long_hotel' => $this->input->post('long'),
+					// 'lat_hotel' => $this->input->post('lat')
+
+	        		);
+	        	}	        	
 	        } else {
 	        	//compress images
 	        	$config['image_library'] = 'gd2';
@@ -314,16 +361,32 @@ class Administrator extends CI_Controller
 	        	$this->load->library('image_lib', $config);
 	        	$this->image_lib->resize();
 
-	        	$data_hotel = array(
-					'nama_hotel' => $this->input->post('nama_hotel'),
-					'alamat_hotel' => $this->input->post('alamat_hotel'),
-					'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
-					'deskripsi_hotel' => $this->input->post('deskripsi'),
-					'long_hotel' => $this->input->post('long'),
-					'lat_hotel' => $this->input->post('lat'),
-					'foto_hotel' => $foto['file_name']
+	        	if ($iframe == '') {
+	        		$data_hotel = array(
+	        			'nama_hotel' => $this->input->post('nama_hotel'),
+	        			'alamat_hotel' => $this->input->post('alamat_hotel'),
+	        			'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
+	        			'deskripsi_hotel' => $this->input->post('deskripsi'),
+	        			str_replace('.', '', $this->input->post('harga')),
+					// 'long_hotel' => $this->input->post('long'),
+					// 'lat_hotel' => $this->input->post('lat'),
+	        			'foto_hotel' => $foto['file_name']
 
-				);
+	        		);
+	        	} else {
+	        		$data_hotel = array(
+	        			'nama_hotel' => $this->input->post('nama_hotel'),
+	        			'alamat_hotel' => $this->input->post('alamat_hotel'),
+	        			'slug_hotel' => url_title($this->input->post('nama_hotel'), 'dash', TRUE),
+	        			'deskripsi_hotel' => $this->input->post('deskripsi'),
+	        			'peta_hotel' => $this->input->post('iframe'),
+	        			str_replace('.', '', $this->input->post('harga')),
+					// 'long_hotel' => $this->input->post('long'),
+					// 'lat_hotel' => $this->input->post('lat'),
+	        			'foto_hotel' => $foto['file_name']
+
+	        		);
+	        	}	        	
 
 				$unlink = $this->Admin_model->ambil_data_by_id('tb_hotel','id_hotel',$id);
 	        	$path = 'assets/foto/hotel/';
@@ -438,11 +501,11 @@ class Administrator extends CI_Controller
 
 	        	$data_wisata = array(
 					'nama_kuliner' => $this->input->post('nama_kuliner'),
-					'alamat_kuliner' => $this->input->post('alamat_kuliner'),
+					// 'alamat_kuliner' => $this->input->post('alamat_kuliner'),
 					'slug_kuliner' => url_title($this->input->post('nama_kuliner'), 'dash', TRUE),
 					'deskripsi_kuliner' => $this->input->post('deskripsi'),
-					'long_kuliner' => $this->input->post('long'),
-					'lat_kuliner' => $this->input->post('lat'),
+					// 'long_kuliner' => $this->input->post('long'),
+					// 'lat_kuliner' => $this->input->post('lat'),
 					'foto_kuliner' => $foto['file_name']
 
 				);
@@ -476,11 +539,11 @@ class Administrator extends CI_Controller
 	        if (empty($foto['file_name'])) {
 	        	$data_wisata = array(
 					'nama_kuliner' => $this->input->post('nama_kuliner'),
-					'alamat_kuliner' => $this->input->post('alamat_kuliner'),
+					// 'alamat_kuliner' => $this->input->post('alamat_kuliner'),
 					'slug_kuliner' => url_title($this->input->post('nama_kuliner'), 'dash', TRUE),
 					'deskripsi_kuliner' => $this->input->post('deskripsi'),
-					'long_kuliner' => $this->input->post('long'),
-					'lat_kuliner' => $this->input->post('lat')
+					// 'long_kuliner' => $this->input->post('long'),
+					// 'lat_kuliner' => $this->input->post('lat')
 
 				);
 	        } else {
@@ -498,11 +561,11 @@ class Administrator extends CI_Controller
 
 	        	$data_wisata = array(
 					'nama_kuliner' => $this->input->post('nama_kuliner'),
-					'alamat_kuliner' => $this->input->post('alamat_kuliner'),
+					// 'alamat_kuliner' => $this->input->post('alamat_kuliner'),
 					'slug_kuliner' => url_title($this->input->post('nama_kuliner'), 'dash', TRUE),
 					'deskripsi_kuliner' => $this->input->post('deskripsi'),
-					'long_kuliner' => $this->input->post('long'),
-					'lat_kuliner' => $this->input->post('lat'),
+					// 'long_kuliner' => $this->input->post('long'),
+					// 'lat_kuliner' => $this->input->post('lat'),
 					'foto_kuliner' => $foto['file_name']
 
 				);
@@ -790,6 +853,7 @@ class Administrator extends CI_Controller
 	public function user_area($id)
 	{
 		$data['user'] = $this->Admin_model->ambil_data_by_id('tb_auth','id',$id);
+		$data['title'] = "User Area";
 
 		$this->template->load('administrator/Template', 'administrator/mod_auth/User_area', $data);
 	}
@@ -813,9 +877,78 @@ class Administrator extends CI_Controller
 
 		$query = $this->Admin_model->update_data('tb_auth','id',$id,$data_users);
 
-		if ($query) {
-			redirect(base_url().'administrator/user_area/'.$this->session->userdata('id'));
+		if ($query) {			
+			if ($password != '') {
+				// $this->session->sess_destroy();
+				$this->session->set_flashdata('resetPassword', 'Anda Baru Saja Mereset Password. Silahkan Login Kembali Menggunakan Password Baru Anda');
+				redirect(base_url().'auth/keluar');
+			} else {
+				$this->session->set_flashdata('updateDataUser', 'Sukses Memperbarui Data');
+				redirect(base_url().'administrator/user_area/'.$this->session->userdata('id'));
+			}
 		}
+	}
+
+	public function ambil_peta($id)
+	{
+		$n = $this->db->query("SELECT peta_wisata FROM tb_wisata WHERE id_wisata = $id ")->row_array();
+		echo $n['peta_wisata'];
+	}
+
+	public function ambil_peta_hotel($id)
+	{
+		$n = $this->db->query("SELECT peta_hotel FROM tb_hotel WHERE id_hotel = $id ")->row_array();
+		echo $n['peta_hotel'];
+	}
+
+	public function update_foto_profil_user()
+	{
+		$id = $this->uri->segment(3);
+
+		$cek_foto_profil = $this->db->query("SELECT foto FROM tb_auth WHERE id = $id")->row_array();
+
+		$config['upload_path'] = 'assets/foto/user';
+		$config['allowed_types'] = '*';
+		$config['encrypt_name'] = TRUE;
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('foto_user')) {
+			$foto = $this->upload->data();
+			$file_name = $foto['file_name'];
+
+			//compress images
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'assets/foto/user/'.$foto['file_name'];
+			$config['create_thumb'] = FALSE;
+			$config['maintain_ratio'] = FALSE;
+			$config['quality'] = '50%';
+			$config['width'] = 300;
+			$config['height'] = 400;
+			$config['new_image'] = 'assets/foto/user/'.$foto['file_name'];
+			$this->load->library('image_lib', $config);
+			$this->image_lib->resize();
+
+			if ($cek_foto_profil['foto'] != '') {
+				$path = 'assets/foto/user/';
+    			@unlink($path.$cek_foto_profil['foto']); 
+			}
+
+			$query = $this->db->query("UPDATE tb_auth SET foto = '$file_name' WHERE id = $id ");
+
+			if ($query) {
+				$this->session->set_flashdata('updateFotoProfile', 'Sukses Memperbarui Foto Profil');
+				redirect(base_url().'administrator/user_area/'.$id);
+			}
+		}
+									
+	}
+
+	public function admin_area($id)
+	{
+		$data['user'] = $this->Admin_model->ambil_data_by_id('tb_auth','id',$id);
+		$data['title'] = "User Area";
+
+		$this->template->load('administrator/Template', 'administrator/mod_auth/User_area', $data);
 	}
 }
 ?>

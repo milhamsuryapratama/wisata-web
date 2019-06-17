@@ -31,6 +31,12 @@
         </div>
         <div class="card">
             <div class="body">
+                <?php if ($this->session->userdata('resetPassword')) { ?>
+                    <div class="alert bg-green alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <?=$this->session->userdata('resetPassword')?>
+                    </div>
+                <?php }  ?>
                 <form id="sign_in" method="POST" action="<?=base_url()?>auth/login">
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">

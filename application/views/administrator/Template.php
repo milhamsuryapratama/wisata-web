@@ -92,7 +92,14 @@
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img src="<?php echo base_url(); ?>assets/adminBSB/images/user.png" width="48" height="48" alt="User" />
+                        <?php $f = $this->db->query("SELECT foto FROM tb_auth WHERE id = '".$this->session->userdata('id')."' ")->row_array();
+
+                            if ($this->session->userdata('role') == 'admin') { ?>
+                                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.svg" width="50" height="50" alt="User" />
+                            <?php } else { ?>
+                                 <img src="<?=base_url()?>assets/foto/user/<?=$f['foto']?>" width="48" height="48" alt="User" />
+                            <?php }
+                        ?>
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$this->session->userdata('username')?></div>
@@ -124,7 +131,7 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li <?php if ($this->uri->segment(2) == 'wisata' OR $this->uri->segment(2) == 'tambah_wisata' OR $this->uri->segment(2) == 'edit_wisata') {
+                        <li <?php if ($this->uri->segment(2) == 'wisata' OR $this->uri->segment(2) == 'tambah_wisata' OR $this->uri->segment(2) == 'edit_wisata' OR $this->uri->segment(2) == 'galery_wisata') {
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/wisata" class=" waves-effect waves-block">
@@ -132,7 +139,7 @@
                                 <span>Wisata</span>
                             </a>
                         </li>
-                        <li <?php if ($this->uri->segment(2) == 'hotel' OR $this->uri->segment(2) == 'tambah_hotel' OR $this->uri->segment(2) == 'edit_hotel') {
+                        <li <?php if ($this->uri->segment(2) == 'hotel' OR $this->uri->segment(2) == 'tambah_hotel' OR $this->uri->segment(2) == 'edit_hotel' OR $this->uri->segment(2) == 'galery_hotel') {
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/hotel" class=" waves-effect waves-block">
@@ -140,7 +147,7 @@
                                 <span>Hotel</span>
                             </a>
                         </li>
-                        <li <?php if ($this->uri->segment(2) == 'kuliner' OR $this->uri->segment(2) == 'tambah_kuliner' OR $this->uri->segment(2) == 'edit_kuliner') {
+                        <li <?php if ($this->uri->segment(2) == 'kuliner' OR $this->uri->segment(2) == 'tambah_kuliner' OR $this->uri->segment(2) == 'edit_kuliner' OR $this->uri->segment(2) == 'galery_kuliner') {
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/kuliner" class=" waves-effect waves-block">
@@ -168,7 +175,7 @@
                         <?php } else { ?>
                             <li <?php if ($this->uri->segment(2) == 'user_area') {
                             echo "class='active'";
-                        } ?>>>
+                        } ?>>
                                 <a href="<?=base_url()?>administrator/user_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
                                     <i class="material-icons">text_fields</i>
                                     <span>User Area</span>

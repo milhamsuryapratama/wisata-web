@@ -4,18 +4,8 @@
 			<h2>
 				UPLOAD FOTO <?=$hotel['nama_hotel']?>
 			</h2>
-			<ul class="header-dropdown m-r--5">
-				<li class="dropdown">
-					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<i class="material-icons">more_vert</i>
-					</a>
-					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-					</ul>
-				</li>
-			</ul>
+			<br>
+			<div id="sukses"></div>
 		</div>
 		<div class="body">
 			<div class="dropzone">
@@ -35,18 +25,6 @@
 			<h2>
 				GALLERY FOTO <?=$hotel['nama_hotel']?>
 			</h2>
-			<ul class="header-dropdown m-r--5">
-				<li class="dropdown">
-					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<i class="material-icons">more_vert</i>
-					</a>
-					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-						<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-					</ul>
-				</li>
-			</ul>
 		</div>
 		<div class="body">
 			<div id="aniimated-thumbnials" class="list-unstyled row clearfix">
@@ -86,6 +64,15 @@
 	foto_upload.on("sending",function(a,b,c){
 		a.token=Math.random();
 		c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+		setTimeout(function() {
+			$("#sukses").html(`<div class="alert bg-green alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                Upload Foto Sukses
+                            </div>`);
+		}, 1000);
+		setTimeout(function() {
+			$("#sukses").html('');
+		},3000);
 	});
 
 	foto_upload.on("removedfile",function(a){

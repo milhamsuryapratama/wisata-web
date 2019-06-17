@@ -20,6 +20,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		// $data['wisata'] = $this->db->query("SELECT * FROM tb_wisata ORDER BY id_wisata DESC LIMIT 3")->result_array();
+		// $data['hotel'] = $this->db->query("SELECT * FROM tb_hotel ORDER BY id_hotel DESC LIMIT 3")->result_array();
+		// $data['kuliner'] = $this->db->query("SELECT * FROM tb_kuliner ORDER BY id_kuliner DESC LIMIT 3")->result_array();
+		// $data['artikel'] = $this->db->query("SELECT * FROM tb_blog ORDER BY id_blog DESC LIMIT 2")->result_array();
+
+		$this->load->view('homepage/Header');
+		$this->load->view('homepage/Home');
+		$this->load->view('homepage/Footer');
 	}
 }

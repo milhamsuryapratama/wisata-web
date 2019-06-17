@@ -16,6 +16,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
+                                        <label>Nama Wisata</label>
                                         <input type="text" name="nama_wisata" class="form-control" placeholder="Nama Wisata" value="<?=$wisata['nama_wisata']?>">
                                     </div>
                                 </div>                            
@@ -23,6 +24,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
+                                        <label>Alamat Wisata</label>
                                         <input type="text" name="alamat_wisata" class="form-control" placeholder="Alamat Wisata" value="<?=$wisata['alamat_wisata']?>">
                                     </div>
                                 </div>  
@@ -44,12 +46,12 @@
                 <div class="card">
                     <div class="header bg-red">
                         <h2>
-                            Longitude & Latitude <small></small>
+                            Peta <small></small>
                         </h2>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <div class="col-sm-6">
+                            <!-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" name="long" class="form-control" placeholder="Longitude" value="<?=$wisata['lang_wisata']?>">
@@ -62,7 +64,20 @@
                                         <input type="text" name="lat" class="form-control" placeholder="Latitude" value="<?=$wisata['lat_wisata']?>">
                                     </div>
                                 </div>
-                                
+                            
+                            </div> -->     
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label>Perbarui Peta (Jika Perlu)</label>
+                                        <input type="text" name="iframe" id="iframe" class="form-control" placeholder="Sematkan Kode Peta">
+                                    </div>          
+                                    <br>                      
+                                    <div id="lihat_peta"></div>
+                                    <br>
+                                    <center><span><button type="button" id="btn_peta" class="btn bg-red waves-effect" data-toggle="modal" data-target="#largeModal">Lihat Peta Saat Ini</button> <button type="button" class="btn bg-red waves-effect" data-toggle="modal" data-target="#cara">Lihat Cara Menyematkan Peta</button></span></center>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,9 +92,10 @@
                         </h2>
                     </div>
                     <div class="body">
+                        <label>Perbarui Foto (Jika Perlu)</label>
                         <input type="file" name="thumbnail" class="form-control">
                         <br/>
-                        <center><img src="<?=base_url()?>assets/foto/wisata/<?=$wisata['foto_wisata']?>"></center>
+                        <center><img src="<?=base_url()?>assets/foto/wisata/<?=$wisata['foto_wisata']?>" height="100" width="250"></center>
                     </div>
                 </div>
             </div>
@@ -98,13 +114,99 @@
     </div>
 </div>
 
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">PETA</h4>
+            </div>
+            <div class="modal-body" id="peta">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cara" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="largeModalLabel">Cara Menyematkan Peta</h4>
+            </div>
+            <div class="modal-body">
+                1. Kunjungi <a href="https://maps.google.co.id/" target="blank">Google Maps</a>
+                <br>                
+                2. Cari tempat
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/2.png" width="500">
+                <br>
+                <br>
+                3. Pilih Bagikan
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/3.png" width="500">
+                <br>
+                <br>
+                4. Pilih Sematkan Peta
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/4.png" width="500">
+                <br>
+                <br>
+                5. Klik Salin HTML
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/5.png" width="500">
+                <br>
+                <br>
+                6. Paste kode peta pada form semat peta pada admin panel
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/6.png" width="500">
+                <br>
+                <br>
+                7. Klik tombol lihat peta untuk melihat peta
+                <br>
+                <img src="<?=base_url()?>assets/semat_peta/7.png" width="500">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="<?php echo base_url(); ?>assets/adminBSB/plugins/jquery/jquery.min.js"></script>
 <script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script>
 
 <script>
     $(function() {
         CKEDITOR.replace('deskripsi', {
-            height: '300px'
-        });
+            height: '500px'
+        });        
+
+        $("#iframe").on('input', function() {    
+
+            var iframe = $("#iframe").val();
+
+            if (iframe == '') {
+                $("#lihat_peta").html('');
+            } else {
+                $("#lihat_peta").html(`<center><button type="button" class="btn bg-red waves-effect" data-toggle="modal" data-target="#largeModal">Lihat Peta Baru</button></center>`);
+                $("#peta").html('<center>'+iframe+'</center>');
+            }            
+        })
+
+        $("#btn_peta").click(function() {
+            $.get("<?=base_url()?>administrator/ambil_peta/<?=$this->uri->segment(3)?>", {}, (result) => {
+                $("#peta").html("<center>"+result+"</center>");
+            })
+        })                
+
+        // if (iframe != '') {
+        //     $("#lihat_peta").html(`<button type="button" class="btn bg-red waves-effect" data-toggle="modal" data-target="#largeModal">Lihat Peta</button>`);
+        //     $("#peta").html('<center>'+iframe+'</center>');
+        // }
+
+        
     })
 </script>

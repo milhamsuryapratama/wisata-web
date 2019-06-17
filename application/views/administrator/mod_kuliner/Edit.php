@@ -13,23 +13,25 @@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="form-line">
+                                        <label>Nama Kuliner</label>
                                         <input type="text" name="nama_kuliner" class="form-control" placeholder="Nama Kuliner" value="<?=$kuliner['nama_kuliner']?>">
                                     </div>
                                 </div>                            
                             </div>
-                            <div class="col-sm-6">
+                            <!-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" name="alamat_kuliner" class="form-control" placeholder="Alamat Kuliner" value="<?=$kuliner['alamat_kuliner']?>">
                                     </div>
                                 </div>  
-                            </div>
+                            </div> -->
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="form-line">
+                                        <label>Deskripsi Kuliner</label>
                                         <textarea id="deskripsi" name="deskripsi" class="form-control"><?=$kuliner['deskripsi_kuliner']?></textarea>
                                     </div>
                                 </div>
@@ -40,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="card">
                     <div class="header bg-red">
                         <h2>
@@ -66,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="card">
@@ -76,6 +78,7 @@
                         </h2>                        
                     </div>
                     <div class="body">
+                        <label>Perbarui Foto (Bila Perlu)</label>
                         <input type="file" name="thumbnail" class="form-control">
                         <br/>
                         <center><img src="<?=base_url()?>assets/foto/kuliner/<?=$kuliner['foto_kuliner']?>"></center>
@@ -103,7 +106,7 @@
 <script>
     $(function() {
         CKEDITOR.replace('deskripsi', {
-            height: '300px'
+            height: '500px'
         });
     })
 </script>
