@@ -31,7 +31,7 @@
 		<img src="<?=base_url()?>assets/homepage/img/bg-news.jpg">
 		<div class="overlay">
 			<div class="header-title">
-				<h3>What's Happen</h3>
+				<h3>Any question?</h3>
 				<span class="ion-record"></span>&nbsp;
 				<span class="ion-record"></span>&nbsp;
 				<span class="ion-record"></span>
