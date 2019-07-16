@@ -25,10 +25,7 @@
 						</div>
 						<div class="content-single-body" align="justify">
 							<p><?=$news['isi']?></p>
-
-							<div class="label" id="share">
-								<!-- <a class="a2a_dd" href="https://www.addtoany.com/share"><img src="https://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"></a> -->
-							</div>
+							
 							<div class="sharethis-inline-share-buttons"></div>
 						
 						</div>
