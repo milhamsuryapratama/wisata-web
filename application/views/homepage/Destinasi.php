@@ -52,7 +52,7 @@
 			<div class="col">
 				<img src="<?=base_url()?>assets/homepage/img/icon/destination.png">
 				<h3>find your destination right now !</h3>
-				<p>Berikut adalah daftar destinasi yang dapat anda kunjung di Probolinggo.
+				<p>Berikut adalah daftar destinasi yang dapat anda kunjungi di <b>Kabupaten Probolinggo</b>.
 				</p>
 			</div>
 			<div class="col-form">

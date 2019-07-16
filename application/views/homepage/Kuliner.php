@@ -22,8 +22,8 @@
 <section class="section section-discover" id="discover">
 	<div class="section-head">
 		<div class="section-line"></div>
-		<h3 class="section-title">KULINER PROBOLINGGO</h3>
-		<p class="section-subtitle">Probolinggo selain kaya dengan keindahan alamnya juga kaya akan cita rasa kulinernya. Simak dibawah ini daftar kuliner khas Probolinggo.</p>
+		<h3 class="section-title">KULINER KABUPATEN PROBOLINGGO</h3>
+		<p class="section-subtitle">Kabupaten Probolinggo selain kaya dengan keindahan alamnya juga kaya akan cita rasa kulinernya. Simak dibawah ini daftar kuliner khas <b>Kabupaten Probolinggo</b>.</p>
 	</div>
 	<div class="section-discover-body slide">
 		<?php $m = 1; foreach ($kuliner as $k) { ?>

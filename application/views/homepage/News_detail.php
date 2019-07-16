@@ -26,11 +26,11 @@
 						<div class="content-single-body" align="justify">
 							<p><?=$news['isi']?></p>
 
-							<!-- <div class="label">
-								<a href=""><span class="ion-pricetags"></span> &nbsp; News</a>
-								<a href=""><span class="ion-android-share-alt"></span> &nbsp; Share</a>
-								<a href=""><span class="ion-heart"></span> &nbsp; Like</a>
-							</div> -->
+							<div class="label" id="share">
+								<!-- <a class="a2a_dd" href="https://www.addtoany.com/share"><img src="https://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"></a> -->
+							</div>
+							<div class="sharethis-inline-share-buttons"></div>
+						
 						</div>
 						<div class="content-single-footer">
 							<h3 class="text-center">Artikel Baru</h3>
@@ -103,4 +103,11 @@
 		</div>
 	</section>
 
-	<!-- <script type="text/javascript" src="<?=base_url()?>assets/homepage/js/jquery.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>assets/homepage/js/jquery.js"></script>
+	<!-- AddToAny BEGIN -->
+	<script>
+		var a2a_config = a2a_config || {};
+		a2a_config.locale = "id";
+	</script>
+	<script type='text/javascript' src="https://platform-api.sharethis.com/js/sharethis.js#property=5d2f3dc34bd0b50012e2cfa2&product='inline-share-buttons'" async='async'></script>
+<!-- AddToAny END -->

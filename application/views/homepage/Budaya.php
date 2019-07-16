@@ -51,8 +51,8 @@
 		<div class="single-head">
 			<div class="col">
 				<img src="<?=base_url()?>assets/homepage/img/icon/destination.png">
-				<h3>find your destination right now !</h3>
-				<p>Berikut adalah daftar destinasi yang dapat anda kunjung di Probolinggo.
+				<h3>Ragam Budaya Kabupaten Probolinggo !</h3>
+				<p>Berikut adalah daftar budaya di Kabupaten Probolinggo.
 				</p>
 			</div>
 			<div class="col-form">

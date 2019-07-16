@@ -23,8 +23,8 @@
 		<div class="single-head">
 			<div class="col">
 				<img src="<?=base_url()?>assets/homepage/img/icon/destination.png">
-				<h3>find your destination right now !</h3>
-				<p>Berikut adalah daftar destinasi yang dapat anda kunjung di Probolinggo.
+				<h3>Temukan Akomodasi Terbaikmu </h3>
+				<p>Berikut adalah daftar akomodasi/hotel yang dapat anda temukan di Kabupaten Probolinggo.
 				</p>
 			</div>
 			<div class="col-form">

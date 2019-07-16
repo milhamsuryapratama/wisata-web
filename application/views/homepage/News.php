@@ -48,31 +48,37 @@
 		<div class="container">
 			<div class="row">
 				<div class="content">
-					<?php foreach ($news as $n) { ?>
-						<div class="col">
-							<div class="content-img">
-								<img src="<?=base_url()?>assets/foto/artikel/<?=$n['thumbnail']?>">
-								<span class="label-img"> News</span>
-							</div>
-							<div class="content-desc">
-								<div class="content-desc-title">
-									<a href="<?=base_url()?>news/detail/<?=$n['slug_blog']?>">
-										<h3> <?=$n['judul']?></h3>
-									</a>
+					<?php  
+						if (count($news) > 0) {
+							foreach ($news as $n) { ?>
+								<div class="col">
+									<div class="content-img">
+										<img src="<?=base_url()?>assets/foto/artikel/<?=$n['thumbnail']?>">
+										<span class="label-img"> News</span>
+									</div>
+									<div class="content-desc">
+										<div class="content-desc-title">
+											<a href="<?=base_url()?>news/detail/<?=$n['slug_blog']?>">
+												<h3> <?=$n['judul']?></h3>
+											</a>
+										</div>
+										<div class="content-desc-text" align="justify">
+											<ul class="breadcrumb-post">
+												<li><i class="ion-calendar"></i> <?=date('d F Y', strtotime($n['tgl_post']))?></li>
+												<li><i class="ion-person"></i> <?=$n['nama']?></li>
+											</ul>
+											<p>
+												<?=substr($n['isi'],0,300);?>
+											</p>
+											<a href="<?=base_url()?>news/detail/<?=$n['slug_blog']?>" class="btn btn-md btn-orange" style="margin-top: 10px;">Read More</a>
+										</div>
+									</div>
 								</div>
-								<div class="content-desc-text" align="justify">
-									<ul class="breadcrumb-post">
-										<li><i class="ion-calendar"></i> <?=date('d F Y', strtotime($n['tgl_post']))?></li>
-										<li><i class="ion-person"></i> <?=$n['nama']?></li>
-									</ul>
-									<p>
-										<?=substr($n['isi'],0,300);?>
-									</p>
-									<a href="<?=base_url()?>news/detail/<?=$n['slug_blog']?>" class="btn btn-md btn-orange" style="margin-top: 10px;">Read More</a>
-								</div>
-							</div>
-						</div>
-					<?php } ?>					
+							<?php }
+						} else { ?>
+							<center><h3>Pencarian Tidak Ditemukan</h3></center>
+						<?php }
+					?>			
 
 					<?php echo $halaman; ?>	
 					

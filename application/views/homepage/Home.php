@@ -7,12 +7,12 @@
 		</div>
 		<div class="section-header-inner">
 			<div class="section-header-title">
-				<h3 class="title">GREAT <br> ART <br>OF <br>PROBOLINGGO</h3>
+				<h3 class="title">GREAT <br> ART <br>OF <br>PROBOLINGGO <br> REGENCY</h3>
 			</div>
 			<div class="section-header-title-xs">
-				<h3 class="title">GREAT ART OF PROBOLINGGO</h3>
+				<h3 class="title">GREAT ART OF PROBOLINGGO REGENCY</h3>
 			</div>
-			<p>Telusuri Keindahan Probolinggo Yang <br> Belum Pernah Anda Temui Sebelumnya</p>
+			<p>Telusuri Keindahan Kabupaten Probolinggo Yang <br> Belum Pernah Anda Temui Sebelumnya</p>
 			<a href="" class="btn btn-round btn-orange">See Our Vacation</a>
 		</div>
 	</section>
@@ -21,28 +21,27 @@
 
 	<section class="section section-about">
 		<div class="about-head slide">
-			<h3>Probolinggo Destinations</h3>
+			<h3>Kabupaten Probolinggo</h3>
 			<p> <b>Probolinggo Destinations</b> merupakan website yang bertujuan mengenalkan
-				pesona keindahan Probolinggo mulai dari Wisata dan Budaya .
-				Tidak hanya sarana untuk memperkanalkan, <b>Probolinggo Destinations</b> juga menyediakan berbagai layanan pemesanan tiket mulai
-				tiket Tour dan tempat penginapan di sekitar Probolinggo </p>
+				pesona keindahan Kabupaten Probolinggo mulai dari Wisata, Budaya, hingga Kuliner.
+				</p>
 		</div>
 		<div class="about-body">
 			<div class="row slide">
 				<div class="col">
 					<img src="<?=base_url()?>assets/homepage/img/about/wisata.png">
 					<h2>WISATA</h2>
-					<p>Dapatkan pengalaman berpetualang yang belum pernah anda rasakan sebelumnya hanya di Probolinggo</p>
+					<p>Dapatkan pengalaman berpetualang yang belum pernah anda rasakan sebelumnya hanya di Kabupaten Probolinggo</p>
 				</div>
 				<div class="col">
 					<img src="<?=base_url()?>assets/homepage/img/about/hotels.png">
 					<h2>HOTELS</h2>
-					<p>Kami memberikan info - info seputar hotel di Probolinggo</p>
+					<p>Kami memberikan info - info seputar hotel di Kabupaten Probolinggo</p>
 				</div>
 				<div class="col">
 					<img src="<?=base_url()?>assets/homepage/img/about/kuliner.png">
 					<h2>KULINER</h2>
-					<p>Anda tidak perlu kawatir tidak menemukan makanan, karena di Probolinggo banyak sekali kuliner yang bisa dinikmati.</p>
+					<p>Anda tidak perlu kawatir tidak menemukan makanan, karena di Kabupaten Probolinggo banyak sekali kuliner yang bisa dinikmati.</p>
 				</div>
 			</div>
 		</div>
@@ -67,8 +66,7 @@
 		<div class="section-head">
 			<div class="section-line"></div>
 			<h3 class="section-title">DISCOVERY PROBOLINGGO</h3>
-			<p class="section-subtitle">Adalah sebuah warisan indahnya alam dan budaya yang masih terjaga di Probolinggo yang dapat
-				anda jelajahi</p>
+			<p class="section-subtitle">Adalah sebuah warisan indahnya alam dan budaya yang masih terjaga di <b>Kabupaten Probolinggo</b> yang dapat anda jelajahi</p>
 		</div>
 		<div class="section-discover-body slide">
 			<div class="col">
@@ -90,7 +88,7 @@
 						<p>AKOMODASI</p>
 						<div class="line"></div>
 						<div class="caption-text">
-							<p>Selain pemandangan yang indah Probolinggo juga memiliki akomodasi hotel yang bagus</p>
+							<p>Selain pemandangan yang indah Kabupaten Probolinggo Probolinggo juga memiliki akomodasi hotel yang bagus</p>
 						</div>
 					</div>
 				</a>
@@ -102,7 +100,7 @@
 						<p>KULINER</p>
 						<div class="line"></div>
 						<div class="caption-text">
-							<p>Ketahui kuliner apa saja yang bisa anda nikmati di Probolinggo</p>
+							<p>Ketahui kuliner apa saja yang bisa anda nikmati di Kabupaten Probolinggo Probolinggo</p>
 						</div>
 					</div>
 				</a>
