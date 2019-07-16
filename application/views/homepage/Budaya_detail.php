@@ -70,7 +70,7 @@
 					</ul>
 				</div>
 			</div> -->
-			<div class="panel">
+			<!-- <div class="panel">
 				<div class="panel-header">
 					<span class="ion-map"></span>&nbsp; Location
 				</div>
@@ -83,7 +83,7 @@
 						<p><?=$budaya['alamat_budaya']?></p>
 					</div>
 				</div>
-			</div>				
+			</div>	 -->			
 
 			<div class="panel">
 				<div class="panel-header">
