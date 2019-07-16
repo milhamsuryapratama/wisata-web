@@ -120,5 +120,35 @@ class Android extends CI_Controller
 	    $data['hasil'] = $this->Admin_model->ambil_data_by_id_result('tb_budaya','id_budaya',$id);
 	    echo json_encode($data);
 	}
+
+	public function register()
+	{
+	    $users = array(
+	        'username' => $this->input->post("username"),
+    	    'password' => md5($this->input->post("password")),
+    	    'email' => $this->input->post("email")    
+	    );
+	    
+	    $insert = $this->Admin_model->tambah_data('tb_users', $users);
+	    if ($insert) {
+	        $data['success'] = 1;
+	        $data['message'] = "Register Berhasil";
+	        echo json_encode($data);
+	    }
+	}
+	
+	public function login()
+	{
+	    $email = $this->input->post("email");
+	    $password = md5($this->input->post("password"));
+	    
+	    $cek = $this->db->query("SELECT email,password FROM tb_users WHERE email = '$email' AND password = '$password' ")->num_rows();
+	    
+	    if ($cek > 0) {
+	        $data['success'] = 1;
+	        $data['message'] = "Login Berhasil";
+	        echo json_encode($data);
+	    }
+	}
 }
 ?>
