@@ -52,16 +52,16 @@ class Auth extends CI_Controller
 
 		$this->email->initialize(array(
 			'protocol' => 'smtp',
-			'smtp_host' => 'smtp.sendgrid.net',
-			'smtp_user' => 'ilhamsendgridaccount',
-			'smtp_pass' => 'apaen1565487441setakbisacankok',
-			'smtp_port' => 587,
+			'smtp_host' => 'ssl://mail.ilhamsurya.com',
+			'smtp_user' => 'pratama@ilhamsurya.com',
+			'smtp_pass' => 'pratama21ilhamsurya',
+			'smtp_port' => 465,
 			'crlf' => "\r\n",
 			'newline' => "\r\n"
 		));
 
 		$this->email->from('pratama@ilhamsurya.com', 'Email Konfirmasi Ulang Password');
-		$this->email->to('luthfirobit@gmail.com');
+		$this->email->to("blogsayailham@gmail.com");
 		// $this->email->cc('another@another-example.com');
 		// $this->email->bcc('them@their-example.com');
 		$this->email->subject('Email Test');

@@ -131,25 +131,25 @@ class Android extends CI_Controller
 	    
 	    $insert = $this->Admin_model->tambah_data('tb_users', $users);
 	    if ($insert) {
-	    	$this->load->library('email');
+	    	$$this->load->library('email');
 
-	    	$this->email->initialize(array(
-	    		'protocol' => 'smtp',
-	    		'smtp_host' => 'smtp.sendgrid.net',
-	    		'smtp_user' => 'ilhamsendgridaccount',
-	    		'smtp_pass' => 'apaen1565487441setakbisacankok',
-	    		'smtp_port' => 587,
-	    		'crlf' => "\r\n",
-	    		'newline' => "\r\n"
-	    	));
+			$this->email->initialize(array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://mail.ilhamsurya.com',
+				'smtp_user' => 'pratama@ilhamsurya.com',
+				'smtp_pass' => 'pratama21ilhamsurya',
+				'smtp_port' => 465,
+				'crlf' => "\r\n",
+				'newline' => "\r\n"
+			));
 
-	    	$this->email->from('blogsayailham@gmail.com', 'Email Konfirmasi Ulang Password');
-	    	$this->email->to($this->input->post("email"));
-		// $this->email->cc('another@another-example.com');
-		// $this->email->bcc('them@their-example.com');
-	    	$this->email->subject('Email Test');
-	    	$this->email->message('Testing the email class.');
-	    	$this->email->send();
+			$this->email->from('pratama@ilhamsurya.com', 'Email Konfirmasi Ulang Password');
+			$this->email->to("blogsayailham@gmail.com");
+			// $this->email->cc('another@another-example.com');
+			// $this->email->bcc('them@their-example.com');
+			$this->email->subject('Email Test');
+			$this->email->message('Testing the email class.');
+			$this->email->send();
 
 	        $data['success'] = 1;
 	        $data['message'] = "Register Berhasil";
