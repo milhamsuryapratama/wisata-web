@@ -33,19 +33,20 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="forgot_password" method="POST" action="<?=base_url()?>auth/cek_username"> 
+                <form id="forgot_password" method="POST" action="<?=base_url()?>auth/reset_password"> 
                     <div class="msg">
-                        Masukkan Username Anda Untuk Membuat Password Baru.
+                        <strong>Halo <?=$username?></strong>
                     </div>
                     <div class="msg">
-                        Jika anda lupa dengan akses login akun anda (username dan password), silahkan menghubungi administrator untuk mereset akun anda.
+                        Sekarang anda dapat membuat password baru untuk akses login ke akun anda. Silahkan isi password baru dibawah ini
                     </div>
+                    <input type="hidden" class="form-control" name="id" value="<?=$id?>">
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="password" class="form-control" name="password" placeholder="New Password" required autofocus>
                         </div>
                     </div>
 

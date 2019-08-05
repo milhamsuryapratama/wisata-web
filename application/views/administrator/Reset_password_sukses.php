@@ -33,27 +33,27 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="forgot_password" method="POST" action="<?=base_url()?>auth/cek_username"> 
+                <form id="forgot_password" action="<?=base_url()?>auth/"> 
+                    <!-- <div class="msg">
+                        <strong>Halo <?=$username?></strong>
+                    </div> -->
                     <div class="msg">
-                        Masukkan Username Anda Untuk Membuat Password Baru.
+                        Selamat, anda baru saja berhasil memperbarui password anda untuk akses login ke akun anda. Silahkan login kembali menggunakan password baru anda.
                     </div>
-                    <div class="msg">
-                        Jika anda lupa dengan akses login akun anda (username dan password), silahkan menghubungi administrator untuk mereset akun anda.
-                    </div>
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="password" class="form-control" name="password" placeholder="New Password" required autofocus>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Lanjutkan</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">LOGIN</button>
 
-                    <div class="row m-t-20 m-b--5 align-center">
+                    <!-- <div class="row m-t-20 m-b--5 align-center">
                         <a href="<?=base_url()?>auth" style="font-weight: bold;">Login ?</a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>

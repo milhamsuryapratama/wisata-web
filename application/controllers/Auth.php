@@ -46,6 +46,32 @@ class Auth extends CI_Controller
 		$this->load->view('administrator/Lupa_password');
 	}
 
+	public function cek_username()
+	{
+		$username = $this->input->post('username');
+
+		$cek_username = $this->Admin_model->ambil_data_by_id('tb_auth','username',$username);
+		if (count($cek_username) > 0) {
+			$data['username'] = $cek_username['username'];
+			$data['id'] = $cek_username['id'];
+			$this->load->view('administrator/Reset_password', $data);
+		}
+	}
+
+	public function reset_password()
+	{
+		$id = $this->input->post('id');
+		
+		$data = array(
+			"password" => md5($this->input->post('password'))
+		);
+
+		$update_password = $this->Admin_model->update_data('tb_auth','id',$id,$data);
+		if ($update_password) {
+			$this->load->view('administrator/Reset_password_sukses');
+		}
+	}
+
 	public function kirim_email()
 	{
 		$this->load->library('email');
