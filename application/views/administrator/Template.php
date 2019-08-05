@@ -108,14 +108,14 @@
                                 <?php if ($this->session->userdata('role') == 'admin') { ?>
                                     <li>
                                         <a href="<?=base_url()?>administrator/admin_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
-                                            <i class="material-icons">text_fields</i>
+                                            <i class="material-icons">person</i>
                                             <span>Account</span>
                                         </a>
                                     </li>
                                 <?php } else { ?>
                                     <li>
                                         <a href="<?=base_url()?>administrator/user_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
-                                            <i class="material-icons">text_fields</i>
+                                            <i class="material-icons">person</i>
                                             <span>Account</span>
                                         </a>
                                     </li>
@@ -143,7 +143,7 @@
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/wisata" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">local_airport</i>
                                 <span>Wisata</span>
                             </a>
                         </li>
@@ -152,7 +152,7 @@
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/hotel" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">hotel</i>
                                 <span>Hotel</span>
                             </a>
                         </li>
@@ -161,7 +161,7 @@
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/kuliner" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">restaurant</i>
                                 <span>Kuliner</span>
                             </a>
                         </li>
@@ -170,7 +170,7 @@
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/budaya" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">nature_people</i>
                                 <span>Budaya</span>
                             </a>
                         </li>
@@ -179,7 +179,7 @@
                             echo "class='active'";
                         } ?>>
                             <a href="<?=base_url()?>administrator/blog" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">dvr</i>
                                 <span>Blog / Artikel</span>
                             </a>
                         </li>
@@ -189,7 +189,7 @@
                             echo "class='active'";
                         } ?>>
                                 <a href="<?=base_url()?>administrator/users" class=" waves-effect waves-block">
-                                    <i class="material-icons">text_fields</i>
+                                    <i class="material-icons">person</i>
                                     <span>Users</span>
                                 </a>
                             </li>
@@ -198,7 +198,7 @@
                             echo "class='active'";
                         } ?> style="display: none;">
                                 <a href="<?=base_url()?>administrator/admin_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
-                                    <i class="material-icons">text_fields</i>
+                                    <i class="material-icons">person</i>
                                     <span>Admin Area</span>
                                 </a>
                             </li>
@@ -215,7 +215,7 @@
 
                         <li>
                             <a href="<?=base_url()?>auth/keluar" class=" waves-effect waves-block">
-                                <i class="material-icons">text_fields</i>
+                                <i class="material-icons">input</i>
                                 <span>Keluar</span>
                             </a>
                         </li>

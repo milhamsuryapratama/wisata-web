@@ -8,7 +8,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-pink hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">playlist_add_check</i>
+                    <i class="material-icons">local_airport</i>
                 </div>
                 <div class="content">
                     <div class="text">WISATA</div>                    
@@ -19,7 +19,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-cyan hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">help</i>
+                    <i class="material-icons">hotel</i>
                 </div>
                 <div class="content">
                     <div class="text">HOTELS</div>
@@ -31,7 +31,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-light-green hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">forum</i>
+                    <i class="material-icons">restaurant</i>
                 </div>
                 <div class="content">
                     <div class="text">KULINER</div>
@@ -43,7 +43,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-orange hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">person_add</i>
+                    <i class="material-icons">dvr</i>
                 </div>
                 <div class="content">
                     <div class="text">ARTIKELS</div>
