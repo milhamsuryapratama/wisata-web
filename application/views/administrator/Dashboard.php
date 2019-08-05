@@ -11,8 +11,9 @@
                     <i class="material-icons">local_airport</i>
                 </div>
                 <div class="content">
-                    <div class="text">WISATA</div>                    
-                    <div class="number count-to" data-from="0" data-to="20" data-speed="15" data-fresh-interval="20">20</div>
+                    <div class="text">WISATA</div>   
+                    <?php $wisata = $this->db->query("SELECT * FROM tb_wisata")->num_rows(); ?>
+                    <div class="number count-to" data-from="0" data-to="<?=$wisata?>" data-speed="15" data-fresh-interval="20"><?=$wisata?></div>
                 </div>
             </div>
         </div>
