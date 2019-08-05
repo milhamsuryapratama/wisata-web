@@ -599,6 +599,27 @@ class Administrator extends CI_Controller
     	}
 	}
 
+	public function kirim_email()
+	{
+		$config = [
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_user' => 'blogsayailham@gmail.com',
+            'smtp_pass' => 'bLogsaya21ilham', 
+            'smtp_port' => 465,
+            'crlf'      => "\r\n",
+            'newline'   => "\r\n"
+        ];
+        $this->load->library('email', $config);
+        $this->email->from('blogsayailham@gmail.com', 'ILHAM SURYA PRATAMA');
+        $this->email->to('reindrairawan@gmail.com'); 
+        $this->email->subject('ILHAM SURYA PRATAMA | semprulshop');
+        $this->email->message("HALO");
+        $this->email->send();
+	}
+
 	public function galery_kuliner($id){
 		$data['id'] = $id;
 		$data['kuliner'] = $this->Admin_model->ambil_data_by_id('tb_kuliner','id_kuliner',$id);

@@ -105,7 +105,21 @@
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                
+                                <?php if ($this->session->userdata('role') == 'admin') { ?>
+                                    <li>
+                                        <a href="<?=base_url()?>administrator/admin_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
+                                            <i class="material-icons">text_fields</i>
+                                            <span>Account</span>
+                                        </a>
+                                    </li>
+                                <?php } else { ?>
+                                    <li>
+                                        <a href="<?=base_url()?>administrator/user_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
+                                            <i class="material-icons">text_fields</i>
+                                            <span>Account</span>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                                 <li><a href="<?=base_url()?>auth/keluar"><i class="material-icons">input</i>Keluar</a></li>
                             </ul>
                         </div>
@@ -124,6 +138,7 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
+
                         <li <?php if ($this->uri->segment(2) == 'wisata' OR $this->uri->segment(2) == 'tambah_wisata' OR $this->uri->segment(2) == 'edit_wisata' OR $this->uri->segment(2) == 'galery_wisata') {
                             echo "class='active'";
                         } ?>>
@@ -132,6 +147,7 @@
                                 <span>Wisata</span>
                             </a>
                         </li>
+
                         <li <?php if ($this->uri->segment(2) == 'hotel' OR $this->uri->segment(2) == 'tambah_hotel' OR $this->uri->segment(2) == 'edit_hotel' OR $this->uri->segment(2) == 'galery_hotel') {
                             echo "class='active'";
                         } ?>>
@@ -140,6 +156,7 @@
                                 <span>Hotel</span>
                             </a>
                         </li>
+
                         <li <?php if ($this->uri->segment(2) == 'kuliner' OR $this->uri->segment(2) == 'tambah_kuliner' OR $this->uri->segment(2) == 'edit_kuliner' OR $this->uri->segment(2) == 'galery_kuliner') {
                             echo "class='active'";
                         } ?>>
@@ -148,6 +165,7 @@
                                 <span>Kuliner</span>
                             </a>
                         </li>
+
                         <li <?php if ($this->uri->segment(2) == 'budaya' OR $this->uri->segment(2) == 'tambah_budaya' OR $this->uri->segment(2) == 'edit_budaya' OR $this->uri->segment(2) == 'galery_budaya') {
                             echo "class='active'";
                         } ?>>
@@ -156,6 +174,7 @@
                                 <span>Budaya</span>
                             </a>
                         </li>
+
                         <li <?php if ($this->uri->segment(2) == 'blog' OR $this->uri->segment(2) == 'tambah_artikel' OR $this->uri->segment(2) == 'edit_artikel') {
                             echo "class='active'";
                         } ?>>
@@ -164,6 +183,7 @@
                                 <span>Blog / Artikel</span>
                             </a>
                         </li>
+
                         <?php if ($this->session->userdata('role') == 'admin') { ?>
                             <li <?php if ($this->uri->segment(2) == 'users' OR $this->uri->segment(2) == 'tambah_users' OR $this->uri->segment(2) == 'edit_users') {
                             echo "class='active'";
@@ -173,9 +193,10 @@
                                     <span>Users</span>
                                 </a>
                             </li>
+
                             <li <?php if ($this->uri->segment(2) == 'admin_area') {
                             echo "class='active'";
-                        } ?>>
+                        } ?> style="display: none;">
                                 <a href="<?=base_url()?>administrator/admin_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
                                     <i class="material-icons">text_fields</i>
                                     <span>Admin Area</span>
@@ -184,13 +205,14 @@
                         <?php } else { ?>
                             <li <?php if ($this->uri->segment(2) == 'user_area') {
                             echo "class='active'";
-                        } ?>>
+                        } ?> style="display: none;">
                                 <a href="<?=base_url()?>administrator/user_area/<?=$this->session->userdata('id')?>" class=" waves-effect waves-block">
                                     <i class="material-icons">text_fields</i>
                                     <span>User Area</span>
                                 </a>
                             </li>
-                        <?php } ?>
+                        <?php } ?>                        
+
                         <li>
                             <a href="<?=base_url()?>auth/keluar" class=" waves-effect waves-block">
                                 <i class="material-icons">text_fields</i>
